@@ -9,13 +9,14 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"))
 app.use(bodyParser.urlencoded({extended: true}));
 
+const CityList = ["Ashdod","Ashkelon","beer sheva"];
 
 app.get("/",function(req,res){
-  res.render("index",{test: "TEST"});
+  res.render("index",{CityList: CityList});
 });
 
 app.post("/",function(req,res){
-  res.sendFile(__dirname + "/test.html");
+  console.log(req.body.button);
 });
 
 
